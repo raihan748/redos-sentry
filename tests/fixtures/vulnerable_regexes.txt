@@ -1,0 +1,22 @@
+# ReDoS Vulnerability Fixture Patterns
+
+# 1. Nested Quantifiers (Exponential)
+(a+)+$
+([a-zA-Z]+)*
+((a+)?)*
+(0+)+
+
+# 2. Overlapping Alternations (Exponential)
+(a|ab)+$
+(x+|x+)+$
+([0-9]+|[a-zA-Z0-9]+)+
+(left|leftright)+
+
+# 3. Known Real-World CVE Regexes
+# CVE-2020-5243: uap-core exponential backtracking
+(a+)+b
+# CVE-2021-27290: npm trim-newlines polynomial/exponential
+([ \t\r\n]+)+$
+# Ambiguous prefix polynomial ReDoS
+.*a.*b
+.*foo.*bar
